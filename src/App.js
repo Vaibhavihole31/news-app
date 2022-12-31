@@ -1,13 +1,14 @@
 import axios from 'axios';
 import React, { useState } from 'react'
 import './App.css'
+import NewsItems from './components/NewsItems/NewsItems';
 
 function App() {
 
   const [data, setData] = useState("");
 
   const getNews = () => {
-    axios.get("https://newsapi.org/v2/everything?q=twitter&from=2022-11-30&sortBy=publishedAt&apiKey=e583e41919dc42cbb7553fe611ee327b")
+    axios.get("https://newsapi.org/v2/everything?q=cricket&from=2022-11-30&sortBy=publishedAt&apiKey=e583e41919dc42cbb7553fe611ee327b")
 
       .then((response) => {
         
@@ -28,15 +29,14 @@ function App() {
           <div className='row'>
 
           {
-            data && data.map((value)=>{
+            data && data.map((data,i)=>{
               return(
-                <div className='col-md-4'>
-                <div className='news-card'>
-                  <img className='news-img' src={value.urlToImage} />
-                  <h5 className='mt-3'>{value.title}</h5>
-                  <p>{value.description}</p>
-                </div>
-                </div>
+               <NewsItems
+               key={i}
+               urlToImage={data.urlToImage}
+               title={data.title}
+               description={data.description}
+               />
               )
             })
           }
