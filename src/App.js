@@ -1,7 +1,6 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import './App.css'
-// import NewsItems from './components/NewsItems/NewsItems';
 
 function App() {
 
@@ -18,48 +17,30 @@ function App() {
       // console.log(response);
 
 
-
-      // console.log(response.data.articles);
-
-      // db.forEach(element , i=> {
-      //    console.log(element , i);
-      // });
-
       for (let i = 0; i <= 10; i++) {
         const temp = response.data.articles[i];
 
         db.push(temp)
 
-        // const urlToImage = db[i].urlToImage;
-        // setUrlToImage(urlToImage);
-        // console.log(urlToImage);
-
-        // const description = db[i].description;
-        // setDescription(description)
-        // console.log(description);
       }
       // console.log(db)
 
       setTempArr(db)
-
-  
-
     }
-
 
     loadData();
 
   }, [data])
 
-  const newsMAP =  tempArr.map((ele) => {
+  const newsMAP = tempArr.map((ele) => {
     return (
       <div className='col-md-4'>
-      <div className='news-card'>
+        <div className='news-card'>
           <img className='news-img' src={ele.urlToImage} />
           <h5 className='mt-3'>{ele.title}</h5>
           <p>{ele.description}</p>
+        </div>
       </div>
-  </div>
     )
   })
 
@@ -68,7 +49,7 @@ function App() {
   return (
 
     <>
-   
+
       <div>
         <div className='conteiner my-3'>
 
@@ -94,9 +75,9 @@ function App() {
 
         <div className='container'>
           <div className='row'>
-          {
-            newsMAP
-          }
+            {
+              newsMAP
+            }
           </div>
         </div>
       </div>
