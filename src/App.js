@@ -1,6 +1,7 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
 import './App.css'
+import React, { useEffect, useState } from 'react'
+import ImgNews from './assets/newspaper.png'
 
 function App() {
 
@@ -13,7 +14,7 @@ function App() {
 
   useEffect(() => {
     async function loadData() {
-      const response = await axios.get(`https://newsapi.org/v2/everything?q=${data}&from=2022-11-30&sortBy=publishedAt&apiKey=4b188a626f864cfd916725e0bfc4039c`)
+      const response = await axios.get(`https://newsapi.org/v2/everything?q=${data}&from=2022-11-30&sortBy=publishedAt&apiKey=6a778be146594c73b16a48d107558cff`)
       // console.log(response);
 
 
@@ -52,25 +53,32 @@ function App() {
 
       <div>
         <div className='conteiner my-3'>
-
-          <form>
-            <input
-              type="text"
-              placeholder="Enter City Name"
-              className="search-city mt-2 mb-4"
-              value={inpNews}
-              onChange={(e) => {
-                setInpNews(e.target.value);
-              }}
-            />
-            <br></br>
-            <button
-              type="button"
-              className="btn btn-outline-dark search-btn"
-              onClick={() => setData(inpNews)}>
-              SUBMIT
-            </button>
-          </form>
+          <div className='form-options'>
+            <div className='row'>
+              <div className='col-md-3'>
+                <img className='imgNews' src={ImgNews} />
+              </div>
+              <div className='col-md-9'>
+                <form>
+                  <input
+                    type="text"
+                    placeholder="Enter Keyword to find realted News"
+                    className="search-news mt-2 mb-4"
+                    value={inpNews}
+                    onChange={(e) => {
+                      setInpNews(e.target.value);
+                    }}
+                  />
+                  <br></br>
+                  <button
+                    type="button"
+                    className="btn search-btn"
+                    onClick={() => setData(inpNews)}>
+                    <b>SUBMIT</b>
+                  </button>
+                </form></div>
+            </div>
+          </div>
         </div>
 
         <div className='container'>
