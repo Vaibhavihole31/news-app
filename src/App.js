@@ -14,7 +14,7 @@ function App() {
 
   useEffect(() => {
     async function loadData() {
-      const response = await axios.get(`https://newsapi.org/v2/everything?q=${data}&from=2022-11-30&sortBy=publishedAt&apiKey=6a778be146594c73b16a48d107558cff`)
+      const response = await axios.get(`https://newsapi.org/v2/everything?q=${data}&from=2022-12-01&sortBy=publishedAt&apiKey=b3c517bb2e7f4e99aac6dcda6089489f`)
       // console.log(response);
 
 
